@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 - Are You Cooked?</title>
+  <link rel="canonical" href="https://areyoucooked.com/" />
+  <link href="https://fonts.googleapis.com/css2?family=Boogaloo&family=Nunito:wght@800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: #FFFDF0;
+      display: flex; align-items: center; justify-content: center;
+      min-height: 100vh; text-align: center; padding: 20px;
+    }
+    .wrap { max-width: 480px; }
+    .emoji { font-size: 6rem; display: block; margin-bottom: 20px;
+      animation: bounce 1s ease-in-out infinite alternate; }
+    @keyframes bounce { from { transform: translateY(0); } to { transform: translateY(-20px); } }
+    h1 { font-family: 'Boogaloo', cursive; font-size: 3rem; margin-bottom: 12px; }
+    p { font-size: 1.1rem; font-weight: 700; opacity: 0.6; margin-bottom: 30px; }
+    a {
+      display: inline-block;
+      background: #FF2D78; color: white;
+      font-family: 'Boogaloo', cursive; font-size: 1.4rem;
+      padding: 14px 36px; border: 3px solid #0A0A0A;
+      border-radius: 14px; box-shadow: 5px 5px 0 #0A0A0A;
+      text-decoration: none;
+      transition: transform 0.1s, box-shadow 0.1s;
+    }
+    a:hover { transform: translate(-2px,-2px); box-shadow: 7px 7px 0 #0A0A0A; }
+    .count { margin-top: 20px; font-size: 0.85rem; font-weight: 800; opacity: 0.4; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <span class="emoji">🔥</span>
+    <h1>Page Not Found</h1>
+    <p>This page got cooked. Let's get you back to find out if YOU'RE cooked.</p>
+    <a href="/">Take the Quiz →</a>
+    <p class="count">Auto-redirecting in <span id="countdown">5</span>s...</p>
+  </div>
+  <script>
+    let n = 5;
+    const el = document.getElementById('countdown');
+    setInterval(() => { n--; el.textContent = n; if (n <= 0) window.location.href = '/'; }, 1000);
+  </script>
+</body>
+</html>

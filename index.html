@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary SEO -->
+  <title>Are You Cooked? 🔥 The Ultimate Life Audit Quiz</title>
+  <meta name="description" content="Find out exactly how cooked you are in life. Answer real questions about your finances, sleep, mental health, and lifestyle. Get a brutal honest verdict. No cap." />
+  <meta name="keywords" content="are you cooked, life audit quiz, cooked quiz, funny quiz, gen z quiz, am i cooked, life check quiz, cooked or not" />
+  <meta name="author" content="Are You Cooked" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://areyoucooked.com/" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://areyoucooked.com/" />
+  <meta property="og:title" content="Are You Cooked? 🔥 The Ultimate Life Audit Quiz" />
+  <meta property="og:description" content="Find out exactly how cooked you are. Real questions. Brutal answers. No cap. Take the quiz now." />
+  <meta property="og:image" content="https://areyoucooked.com/og-image.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://areyoucooked.com/" />
+  <meta name="twitter:title" content="Are You Cooked? 🔥 The Ultimate Life Audit Quiz" />
+  <meta name="twitter:description" content="Find out exactly how cooked you are. Real questions. Brutal answers. No cap." />
+  <meta name="twitter:image" content="https://areyoucooked.com/og-image.png" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Are You Cooked?",
+    "description": "A brutally honest life audit quiz that tells you exactly how cooked you are based on your lifestyle, finances, sleep, and more.",
+    "url": "https://areyoucooked.com",
+    "applicationCategory": "EntertainmentApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Boogaloo&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Floating background blobs -->
+  <div class="bg-blob blob-1"></div>
+  <div class="bg-blob blob-2"></div>
+  <div class="bg-blob blob-3"></div>
+  <div class="bg-blob blob-4"></div>
+
+  <!-- Noise overlay -->
+  <div class="noise"></div>
+
+  <div id="app">
+
+    <!-- ===== SCREEN 1: LANDING ===== -->
+    <section id="screen-landing" class="screen active">
+      <div class="landing-inner">
+        <div class="sticker sticker-fire top-left">🔥</div>
+        <div class="sticker sticker-skull top-right">💀</div>
+        <div class="badge wiggle">NO CAP</div>
+        <h1 class="hero-title">Are You<br/><span class="highlight">Cooked?</span></h1>
+        <p class="hero-sub">A brutally honest life audit.<br/>Real questions. Real verdict. No sugarcoating.</p>
+        <div class="heat-meter-preview">
+          <div class="heat-bar-bg">
+            <div class="heat-bar-fill preview-fill"></div>
+          </div>
+          <span class="heat-label">your life rn →</span>
+        </div>
+        <button class="btn-main" id="btn-start">
+          Find Out 🔥
+        </button>
+        <p class="disclaimer">⚠️ Results may be uncomfortably accurate</p>
+        <div class="taken-count">🧑‍🍳 <span id="taken-count">47,291</span> people already cooked</div>
+      </div>
+    </section>
+
+    <!-- ===== SCREEN 2: CHARACTER SELECT ===== -->
+    <section id="screen-class" class="screen">
+      <div class="screen-inner">
+        <div class="step-badge">Step 1 of 3</div>
+        <h2 class="screen-title">Who Are You?</h2>
+        <p class="screen-sub">Pick your character class. Be honest.</p>
+        <div class="class-grid" id="class-grid">
+          <!-- filled by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SCREEN 3: QUESTIONS ===== -->
+    <section id="screen-questions" class="screen">
+      <div class="screen-inner">
+        <div class="progress-header">
+          <div class="step-badge" id="q-step-badge">Step 2 of 3</div>
+          <div class="cook-temp">
+            <span id="temp-emoji">😇</span>
+            <span id="temp-label">Not Cooked Yet</span>
+          </div>
+        </div>
+
+        <!-- Heat bar -->
+        <div class="heat-meter">
+          <div class="heat-bar-bg">
+            <div class="heat-bar-fill" id="heat-bar"></div>
+          </div>
+          <div class="heat-ticks">
+            <span>Raw</span><span>Warm</span><span>Toasted</span><span>Cooked</span><span>Cremated</span>
+          </div>
+        </div>
+
+        <!-- Question card -->
+        <div class="question-card" id="question-card">
+          <div class="q-category" id="q-category">💰 Finance</div>
+          <div class="q-number" id="q-number">Q1 / 15</div>
+          <h3 class="q-text" id="q-text">Loading question...</h3>
+          <div class="options-grid" id="options-grid">
+            <!-- filled by JS -->
+          </div>
+        </div>
+
+        <div class="q-nav">
+          <button class="btn-secondary" id="btn-prev">← Back</button>
+          <span class="q-counter" id="q-counter">1 / 15</span>
+          <button class="btn-secondary" id="btn-skip">Skip →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SCREEN 4: RESULT ===== -->
+    <section id="screen-result" class="screen">
+      <div class="screen-inner result-inner">
+        <div class="result-card" id="result-card">
+          <div class="result-emoji" id="result-emoji">☠️</div>
+          <div class="result-score-wrap">
+            <div class="result-score" id="result-score">0%</div>
+            <div class="result-label">COOKED</div>
+          </div>
+          <h2 class="result-title" id="result-title">Absolutely Cremated</h2>
+          <p class="result-desc" id="result-desc">Loading verdict...</p>
+
+          <div class="breakdown-section">
+            <h3 class="breakdown-title">🔍 What's Cooking You:</h3>
+            <div class="breakdown-grid" id="breakdown-grid">
+              <!-- filled by JS -->
+            </div>
+          </div>
+
+          <div class="result-advice" id="result-advice">
+            <!-- filled by JS -->
+          </div>
+        </div>
+
+        <div class="result-actions">
+          <button class="btn-main" id="btn-share">📤 Share Your Result</button>
+          <button class="btn-secondary" id="btn-retry">🔄 Retake Quiz</button>
+        </div>
+
+        <div class="share-toast" id="share-toast">✅ Copied to clipboard!</div>
+
+        <div class="friends-section">
+          <p class="friends-title">Send this to someone who needs a reality check 👇</p>
+          <div class="friend-btns">
+            <a class="btn-share-platform" id="share-twitter" href="#" target="_blank">🐦 Twitter/X</a>
+            <a class="btn-share-platform" id="share-whatsapp" href="#" target="_blank">💬 WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- end #app -->
+
+  <footer class="site-footer">
+    <p>Are You Cooked? © 2026 · <a href="#">Privacy</a> · Made for the culture 🔥</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
